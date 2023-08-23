@@ -15,6 +15,10 @@ define ariel = Character("爱丽儿")
 define kelly = Character("凯莉谱索")
 define warfarin = Character("华芙琳")
 
+init python:
+    # 这个for循环的范围根据实际图片总数修改，这里假设总共5张图
+    for i in range(1, 6):
+        renpy.image("bg_image size_i" + str(i), "bg_size/bg" + str(i) + ".png")
 
 # 游戏在此开始。
 
