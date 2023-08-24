@@ -16,11 +16,12 @@ define kelly = Character("凯莉谱索")
 define warfarin = Character("华芙琳")
 
 define Alika = Character("Alika", image="Alika")
-
 init python:
+    config.automatic_images = [ '_','/',' ' ]
+#init python:
     # 这个for循环的范围根据实际图片总数修改，这里假设总共5张图
-    for i in range(1, 6):
-        renpy.image("bg_image size_i" + str(i), "bg_size/bg" + str(i) + ".png")
+    #for i in range(1, 6):
+        #renpy.image("bg_image size_i" + str(i), "bg_size/bg" + str(i) + ".png")
 
 # 游戏在此开始。
 
@@ -29,7 +30,11 @@ label start:
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
     # （命名为 bg room.png 或 bg room.jpg）来显示。
 
-    scene bg room
+    scene bg_1
+
+    lloris "yyyyyy"
+
+    show bg_31
 
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
     # eileen happy.png 的文件来将其替换掉。
