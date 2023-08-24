@@ -10,7 +10,7 @@ init:
 
 
 define lloris = Character("洛里斯")
-define e = Character("艾琳")
+define eileen = Character("艾琳")
 define ariel = Character("爱丽儿")
 define kelly = Character("凯莉谱索")
 define warfarin = Character("华芙琳")
@@ -18,6 +18,7 @@ define warfarin = Character("华芙琳")
 define Alika = Character("Alika", image="Alika")
 
 image black = "#000"
+image white = '#fff'
 
 #init python:
     # 这个for循环的范围根据实际图片总数修改，这里假设总共5张图
