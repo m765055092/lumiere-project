@@ -16,8 +16,7 @@ define kelly = Character("凯莉谱索")
 define warfarin = Character("华芙琳")
 
 define Alika = Character("Alika", image="Alika")
-init python:
-    config.automatic_images = [ '_','/',' ' ]
+
 #init python:
     # 这个for循环的范围根据实际图片总数修改，这里假设总共5张图
     #for i in range(1, 6):
