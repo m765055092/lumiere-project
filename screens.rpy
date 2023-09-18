@@ -149,6 +149,7 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    color "#ABABAE"
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -239,19 +240,67 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
+            xalign 0.85
             yalign 1.0
-
-            textbutton _("回退") action Rollback()
-            textbutton _("历史") action ShowMenu('history')
-            textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("自动") action Preference("auto-forward", "toggle")
-            textbutton _("保存") action ShowMenu('save')
-            textbutton _("快存") action QuickSave()
-            textbutton _("快读") action QuickLoad()
-            textbutton _("设置") action ShowMenu('preferences')
+            spacing 20
 
 
+
+            imagebutton:
+                idle "gui/q_save_idle.png"
+                hover "gui/q_save_hover.png"
+                tooltip (__("快存"))
+                action QuickSave()
+            imagebutton:
+                idle "gui/q_load_idle.png"
+                hover "gui/q_load_hover.png"
+                tooltip (__("快读"))
+                action QuickLoad()
+
+            imagebutton:
+                idle "gui/log_idle.png" ypos 3
+                hover "gui/log_hover.png"
+                action ShowMenu('history')
+                tooltip (__("历史"))
+            imagebutton:
+                idle "gui/save_idle.png" ypos 3
+                hover "gui/save_hover.png"
+                tooltip (__("保存"))
+                action ShowMenu('save')
+
+            imagebutton:
+                idle "gui/load_idle.png" ypos 4
+                hover "gui/load_hover.png"
+                tooltip (__("读档"))
+                action ShowMenu('load')
+            imagebutton:
+                idle "gui/skip_idle.png"ypos 4
+                hover "gui/skip_hover.png"
+                tooltip (__("跳过"))
+                action Skip() alternate Skip(fast=True, confirm=True)
+            imagebutton:
+                idle "gui/config_idle.png"ypos 4
+                hover "gui/config_hover.png"
+                tooltip (__("设置"))
+                action ShowMenu('preferences')
+        $ tooltip = GetTooltip()
+
+        if tooltip:
+
+            nearrect:
+                focus "tooltip"
+                prefer_top True
+                style_prefix "tooltip"
+
+                frame:
+                    background Solid("#ffffff00")
+                    xalign 0.85
+                    vbox:
+                        text "[tooltip]"
+
+
+style tooltip_text:
+    size 15
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 屏幕。
 init python:
     config.overlay_screens.append("quick_menu")
