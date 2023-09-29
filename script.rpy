@@ -14,12 +14,35 @@ define eileen = Character("艾琳")
 define ariel = Character("爱丽儿")
 define kelly = Character("凯莉谱索")
 define warfarin = Character("华芙琳")
+define eberl = Character("埃布尔")
+define marci = Character("麦瑞克")
+define lilith = Character("莉莉丝")
 
 define Alika = Character("Alika", image="Alika")
 
 image black = "#000"
 image white = '#fff'
+image red = '#ff0000'
 
+define MoveRight = ImageDissolve("images/rules/101.png", time=1.0,ramplen = 32)
+define MoveDown = ImageDissolve("images/rules/02.jpg", time=1.0,ramplen = 32)
+define QMoveup = ImageDissolve("images/rules/03.jpg", time=0.35,ramplen = 32)
+define QMovedown = ImageDissolve("images/rules/03.jpg", time=0.35,ramplen = 32, reverse=True)
+define slash = ImageDissolve("images/rules/06.jpg", time=0.35,ramplen = 32, reverse=True)
+define slash_2 = ImageDissolve("images/rules/07.jpg", time=0.35,ramplen = 32)
+define QMoveRight = ImageDissolve("images/rules/101.png", time=0.45,ramplen = 32)
+define QMoveLeft = ImageDissolve("images/rules/101.png", time=0.45,ramplen = 32, reverse=True)
+define MoveLeft = ImageDissolve("images/rules/101.png", time=1.0,ramplen = 32, reverse=True)
+define CloseDoor = ImageDissolve("images/rules/11.jpg", time=1.0,ramplen = 32)
+define OpenDoor = ImageDissolve("images/rules/11.jpg", time=1.0,ramplen = 32, reverse=True)
+define ccirclewipe = ImageDissolve("images/rules/circlewipe-ccw.jpg", 1.0, 8)
+define slow_light = Fade(0.5, 1.0, 1.5, color="#fff")
+define light = Fade(0.1, 0.5, 1.0, color="#fff")
+image danger:
+    "#FF0000"
+    linear 0.05 alpha 1.0
+    linear 0.05 alpha 0.0
+    repeat 2
 #注释：立绘名称
 #al=艾琳
 #ale=爱丽儿
@@ -33,10 +56,11 @@ image white = '#fff'
 # 游戏在此开始。
 
 label start:
-
+    jump ch1_1
+    jump ch1_7_2
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
     # （命名为 bg room.png 或 bg room.jpg）来显示。
-
+    $renpy.show_screen("ch_in","1-1","序章")
     scene bg 1
     show al (1):
         xalign -0.20 yalign 0.0
@@ -46,6 +70,7 @@ label start:
         xalign 14.0 yalign 0.0
     with dissolve
     lloris "yyyyyy"
+    $renpy.hide_screen("ch_in")
 
     show bg 31 with dissolve
 
